@@ -1,1 +1,13 @@
+.container{
+    margin: 0px;
+    padding: 0px;
+    border: 0px;
+    background-color: black;
+}
 
+.header{
+    text-align: center;
+    padding: 20px;
+    background-color: 393939;
+    color: azure;
+}
