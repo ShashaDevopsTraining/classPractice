@@ -4,6 +4,10 @@
 #Date: 21 June,2022
 #Use: Automation of Github Admin Tasks
 
+##### change <TOKEN> with your perosnal access token. 
+##### change the organization to your own
+#####
+
 
 echo 
 echo "============= Enter your choice ==============="
