@@ -26,7 +26,7 @@ case $choice in
     echo "The existing Teams are ..."
     echo
     curl \
-        -s -S -H "Accept: application/vnd.github.v3+json" -H "Authorization: token <TOKEN>" https://api.github.com/orgs/ShashaDevopsTraining/teams | grep -w "name" | awk '{print $2}' | grep -v teams | sed 's/"*"//g' | cut -d "," -f 1
+        -s -S -H "Accept: application/vnd.github.v3+json" -H "Authorization: token <TOKEN>" https://api.github.com/orgs/<ORG>/teams | grep -w "name" | awk '{print $2}' | grep -v teams | sed 's/"*"//g' | cut -d "," -f 1
     ;;
 
     2)
@@ -42,7 +42,7 @@ case $choice in
 
         #============= this will list all the team names in given organization and redirect names to listOfteam.txt file
         curl \
-        -s -S -H "Accept: application/vnd.github.v3+json" -H "Authorization: token <TOKEN>" https://api.github.com/orgs/ShashaDevopsTraining/teams | grep -w "name" | awk '{print $2}' | grep -v teams | sed 's/"*"//g' | cut -d "," -f 1 > listOfteam.txt
+        -s -S -H "Accept: application/vnd.github.v3+json" -H "Authorization: token <TOKEN>" https://api.github.com/orgs/<ORG>/teams | grep -w "name" | awk '{print $2}' | grep -v teams | sed 's/"*"//g' | cut -d "," -f 1 > listOfteam.txt
 
         #check the given team name in the listOfteam.txt file
         grep -ix $teamname listOfteam.txt > /dev/null
@@ -62,7 +62,7 @@ case $choice in
             read privacy          
             echo 
             curl \
-            -s -S -H "Accept: application/vnd.github.v3+json" -H "Authorization: token <TOKEN>" https://api.github.com/orgs/ShashaDevopsTraining/teams -d '{"name":"'$teamname'","description":"'$desc'","privacy":"'$privacy'"}'
+            -s -S -H "Accept: application/vnd.github.v3+json" -H "Authorization: token <TOKEN>" https://api.github.com/orgs/<ORG>/teams -d '{"name":"'$teamname'","description":"'$desc'","privacy":"'$privacy'"}'
             echo
             echo "Team $teamname created successfully."
         fi
@@ -79,7 +79,7 @@ case $choice in
 
         #============= this will list all the team names in given organization and redirect names to listOfteam.txt file
         curl \
-        -s -S -H "Accept: application/vnd.github.v3+json" --user shashavalidudekula:<TOKEN> https://api.github.com/orgs/ShashaDevopsTraining/teams | grep -w "name" | awk '{print $2}' | grep -v teams | sed 's/"*"//g' | cut -d "," -f 1 > listOfteam.txt
+        -s -S -H "Accept: application/vnd.github.v3+json" --user shashavalidudekula:<TOKEN> https://api.github.com/orgs/<ORG>/teams | grep -w "name" | awk '{print $2}' | grep -v teams | sed 's/"*"//g' | cut -d "," -f 1 > listOfteam.txt
 
         #check the given team name in the listOfteam.txt file
         grep -ix $teamname listOfteam.txt > /dev/null
@@ -90,7 +90,7 @@ case $choice in
             echo 
            curl \
             -X DELETE \
-            -s -S -H "Accept: application/vnd.github.v3+json" -H "Authorization: token <TOKEN>" https://api.github.com/orgs/ShashaDevopsTraining/teams/$teamname
+            -s -S -H "Accept: application/vnd.github.v3+json" -H "Authorization: token <TOKEN>" https://api.github.com/orgs/<ORG>/teams/$teamname
             echo
             echo "team $teamname is deleted successfully."
         else
