@@ -18,12 +18,12 @@ read choice
 case $choice in
     
     1)
-    echo
-    echo "The existing repositories are ..."
-    echo
-    curl \
-        -s -S -H "Accept: application/vnd.github.v3+json" --user shashavalidudekula:<TOKEN> https://api.github.com/orgs/ShashaDevopsTraining/repos | grep -w "name" | awk '{print $2}' | grep -v repos | sed 's/"*"//g' | cut -d "," -f 1
-    ;;
+        echo
+        echo "The existing repositories are ..."
+        echo
+        curl \
+            -s -S -H "Accept: application/vnd.github.v3+json" --user shashavalidudekula:<TOKEN> https://api.github.com/orgs/ShashaDevopsTraining/repos | grep -w "name" | awk '{print $2}' | grep -v repos | sed 's/"*"//g' | cut -d "," -f 1
+        ;;
 
     2)
         echo 
@@ -89,10 +89,10 @@ case $choice in
         fi
         ;;
     *)
-    echo 
-    echo "You have entered wrong choice"
-    echo
-    echo -e "Usage: \n1 ==> Listing repositories \n2 ==> Create a repository \n3 ==> Delete a repository"
-    echo
-    ;;
+        echo 
+        echo "You have entered wrong choice"
+        echo
+        echo -e "Usage: \n1 ==> Listing repositories \n2 ==> Create a repository \n3 ==> Delete a repository"
+        echo
+        ;;
 esac
