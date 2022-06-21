@@ -7,7 +7,8 @@
 
 ### replace <username> with your github username...
 ### replace <ORG> with your organization name in which you want to create repos
-### replace <TOKEN> with your Personal Access Token
+### replace <TOKEN> with your Personal Access Token..
+## update for sowjanya
 
 
 echo 
