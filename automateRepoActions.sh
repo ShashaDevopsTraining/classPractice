@@ -75,9 +75,9 @@ case $choice in
         #check the given repo name in the listOfRepo.txt file
         grep -ix $reponame listOfRepo.txt > /dev/null
 
-        if [ $? -eq 0 ]                        #if name exists it shows already exists
+        if [ $? -eq 0 ]                        #if repo exists it will delete the repo
         then
-            echo "Deleting repo..."                  #if not create a repo with given name.
+            echo "Deleting repo..."                  
             echo 
            curl \
             -X DELETE \
@@ -85,7 +85,7 @@ case $choice in
             echo
             echo "$reponame repo is deleted successfully."
         else
-            echo "incorrect repo name."
+            echo "incorrect repo name."                     #if not it will show error 
         fi
         ;;
     *)
