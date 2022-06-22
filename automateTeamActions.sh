@@ -79,7 +79,7 @@ case $choice in
 
         #============= this will list all the team names in given organization and redirect names to listOfteam.txt file
         curl \
-        -s -S -H "Accept: application/vnd.github.v3+json" --user shashavalidudekula:<TOKEN> https://api.github.com/orgs/<ORG>/teams | grep -w "name" | awk '{print $2}' | grep -v teams | sed 's/"*"//g' | cut -d "," -f 1 > listOfteam.txt
+        -s -S -H "Accept: application/vnd.github.v3+json" --user <username>:<TOKEN> https://api.github.com/orgs/<ORG>/teams | grep -w "name" | awk '{print $2}' | grep -v teams | sed 's/"*"//g' | cut -d "," -f 1 > listOfteam.txt
 
         #check the given team name in the listOfteam.txt file
         grep -ix $teamname listOfteam.txt > /dev/null
